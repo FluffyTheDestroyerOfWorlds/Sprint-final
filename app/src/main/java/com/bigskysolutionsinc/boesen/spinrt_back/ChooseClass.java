@@ -83,10 +83,18 @@ public class ChooseClass extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                RadioButton radioButton;
+
                 String ctv1Text = "";
                 String ctv2Text = "";
                 String ctv3Text = "";
                 String ctv4Text = "";
+
+                String radio1Text = "";
+                String radio2Text = "";
+                String radio3Text = "";
+                String radio4Text = "";
 
                 rg1 = (RadioGroup) findViewById(R.id.radioGroup);
                 rg2 = (RadioGroup) findViewById(R.id.radioGroup2);
@@ -97,18 +105,27 @@ public class ChooseClass extends AppCompatActivity {
                 if (ctv1.isChecked()) {
                     ctv1Text = ctv1.getText().toString();
                     selectedTime1 = rg1.getCheckedRadioButtonId();
+                    radioButton = (RadioButton) findViewById(selectedTime1);
+                    radio1Text = radioButton.getText().toString();
+
                 }
                 if (ctv2.isChecked()) {
                     ctv2Text = ctv2.getText().toString();
                     selectedTime2 = rg2.getCheckedRadioButtonId();
+                    radioButton = (RadioButton) findViewById(selectedTime2);
+                    radio2Text = radioButton.getText().toString();
                 }
                 if (ctv3.isChecked()) {
                     ctv3Text = ctv3.getText().toString();
                     selectedTime3 = rg3.getCheckedRadioButtonId();
+                    radioButton = (RadioButton) findViewById(selectedTime3);
+                    radio3Text = radioButton.getText().toString();
                 }
                 if (ctv4.isChecked()) {
                     ctv4Text = ctv4.getText().toString();
                     selectedTime4 = rg4.getCheckedRadioButtonId();
+                    radioButton = (RadioButton) findViewById(selectedTime4);
+                    radio4Text = radioButton.getText().toString();
                 }
 
 
@@ -124,16 +141,16 @@ public class ChooseClass extends AppCompatActivity {
                       nextScreen.putExtra("degreeCert", degreeCert);
 
                       nextScreen.putExtra("Class1", ctv1Text);
-                      nextScreen.putExtra("Selected1", selectedTime1);
+                      nextScreen.putExtra("Selected1", radio1Text);
 
                       nextScreen.putExtra("Class2",ctv2Text);
-                      nextScreen.putExtra("Selected2", selectedTime2);
+                      nextScreen.putExtra("Selected2", radio2Text);
 
                       nextScreen.putExtra("Class3", ctv3Text);
-                      nextScreen.putExtra("Selected3",selectedTime3);
+                      nextScreen.putExtra("Selected3",radio3Text);
 
                       nextScreen.putExtra("Class4", ctv4Text);
-                      nextScreen.putExtra("Selected4", selectedTime4);
+                      nextScreen.putExtra("Selected4", radio4Text);
 
 
                       //Start the activity

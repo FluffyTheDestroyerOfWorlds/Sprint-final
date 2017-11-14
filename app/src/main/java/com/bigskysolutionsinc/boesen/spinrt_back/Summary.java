@@ -21,24 +21,7 @@ public class Summary extends AppCompatActivity {
     private String class4 = "";
     private String selected4 = "";
 
-//                     nextScreen.putExtra("FirstName", firstName);
-//                      nextScreen.putExtra("LastName", lastName);
-//                      nextScreen.putExtra("Phone", phone);
-//                      nextScreen.putExtra("BirthDate", birthDate);
-//                      nextScreen.putExtra("isDegreeCert", isDegreeCert);
-//                      nextScreen.putExtra("degreeCert", degreeCert);
-//
-//                      nextScreen.putExtra("Class1", ctv1Text);
-//                      nextScreen.putExtra("Selected1", selectedTime1);
-//
-//                      nextScreen.putExtra("Class2",ctv2Text);
-//                      nextScreen.putExtra("Selected2", selectedTime2);
-//
-//                      nextScreen.putExtra("Class3", ctv3Text);
-//                      nextScreen.putExtra("Selected3",selectedTime3);
-//
-//                      nextScreen.putExtra("Class4", ctv4Text);
-//                      nextScreen.putExtra("Selected4", selectedTime4);
+
 
 
     @Override
@@ -63,16 +46,12 @@ public class Summary extends AppCompatActivity {
             class4 = extras.getString("Class4");
             selected4 = extras.getString("Selected4");
         }
-
         final TextView txtStudent = (TextView) findViewById(R.id.txtStudent);
         final TextView txtPhone = (TextView) findViewById(R.id.txtPhone);
         final TextView txtBirthdate = (TextView) findViewById(R.id.txtBirthDate);
         final TextView txtDegreePlan = (TextView) findViewById(R.id.txtDegree);
         final TextView txtMajor = (TextView) findViewById(R.id.txtMajor);
         final TextView txtClassSchedule = (TextView) findViewById(R.id.txtClassSchedule);
-        StringBuilder ClassSchedule = new StringBuilder(250);
-
-
 
         txtStudent.setText(firstName + " " + lastName);
         txtPhone.setText(phone);
@@ -80,53 +59,26 @@ public class Summary extends AppCompatActivity {
         txtDegreePlan.setText(isDegreeCert);
         txtMajor.setText(degreeCert);
 
-        if(class1 != null) {
-            ClassSchedule.append(class1 + "\n" + findTheTime(Integer.parseInt(selected1)) + "\n");
+        StringBuilder ClassSchedule = new StringBuilder(250);
+        if(!class1.equals("")) {
+            ClassSchedule.append(class1 + "\n" + selected1 + "\n\n");
         }
-        if(class2 != null) {
-            ClassSchedule.append(class2 + "\n" + findTheTime(Integer.parseInt(selected2)) + "\n");
+        if(!class2.equals("")) {
+            ClassSchedule.append(class2 + "\n" + selected2 + "\n\n");
         }
-        if(class3 != null) {
-            ClassSchedule.append(class3 + "\n" + findTheTime(Integer.parseInt(selected3)) + "\n");
+        if(!class3.equals("")) {
+            ClassSchedule.append(class3 + "\n" + selected3 + "\n\n");
         }
-        if(class4 != null) {
-            ClassSchedule.append(class4 + "\n" + findTheTime(Integer.parseInt(selected4)) + "\n");
+        if(!class4.equals("")) {
+            ClassSchedule.append(class4 + "\n" + selected4 + "\n\n");
         }
 
         txtClassSchedule.setText(ClassSchedule);
 
 
+
     }
 
-    public String findTheTime(int nRes){
-        String foundString = "";
 
-        switch (nRes) {
-            case R.string.timeRb1:
-                foundString = getResources().getString(R.string.timeRb1);
-                break;
-            case R.string.timeRb2:
-                foundString = getResources().getString(R.string.timeRb2);
-                break;
-            case R.string.timeRb3:
-                foundString = getResources().getString(R.string.timeRb3);
-                break;
-            case R.string.timeRb4:
-                foundString = getResources().getString(R.string.timeRb4);
-                break;
-            case R.string.timeRb5:
-                foundString = getResources().getString(R.string.timeRb5);
-                break;
-            case R.string.timeRb6:
-                foundString = getResources().getString(R.string.timeRb6);
-                break;
-            default:
-                foundString = "Unknown Timeslot";
-                break;
-        }
-
-
-        return foundString;
-    }
 
 }
